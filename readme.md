@@ -1,6 +1,6 @@
-### Create a world map Environmental Measurement Stations
+## Create a world map Environmental Measurement Stations
 
-## You need only to run "stations.py" all information about the stations are
+#### You need only to run "stations.py" all information about the stations are
 downloaded directly from the respective metadata store and combined with layers stations.html
 
 - ICOS  Integrated Carbon Observation System
