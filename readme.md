@@ -1,7 +1,9 @@
-## Create a world map Environmental Measurement Stations
+## Create a World Map with Environmental Measurement Stations
 
-#### You need only to run "stations.py" all information about the stations are
-downloaded directly from the respective metadata store and combined with layers stations.html
+#### You need only to run "stations.py". All information about the stations are downloaded directly from their respective metadata store and combined into one map. Each Network has its own Layer (top right pull down menu in stations.html).
+By default the map is stored locally to "stations.htlm".
+
+The following Networks are implemented sofar:
 
 - ICOS  Integrated Carbon Observation System
 	- [https://www.icos-ri.eu] [https://www.icos-.eu]
