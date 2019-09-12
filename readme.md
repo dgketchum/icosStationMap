@@ -1,7 +1,7 @@
 ## Create a World Map with Environmental Measurement Stations
 
 #### You need only to run "stations.py". All information about the stations are downloaded directly from their respective metadata store and combined into one map. Each Network has its own Layer (top right pull down menu in stations.html).
-By default the map is stored locally to [stations.html](https://htmlpreview.github.com/claudiodonofrio/icosStationMap/blob/master/stations.html).
+By default the map is stored locally to [stations.html]( http://htmlpreview.github.com/?https://github.com/claudiodonofrio/icosStationMap/blob/master/stations.html).
 
 The following Networks are implemented sofar:
 
