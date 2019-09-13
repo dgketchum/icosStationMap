@@ -10,17 +10,16 @@ dynamically loaded from their respective webservices.
 
 __version__ = "0.1.0"
 
-dbg = True
 #--------------------------------------------------------------
 import sys
 import helper_functions as h
 
 # set the list of necessary modules to run the code
-modules = ["os", "webbrowser", "folium", "icos", "neon", "ameriflux", "lter"]
+modules = ['os', 'webbrowser', 'folium', 'icos', 'neon', 'ameriflux', 'lter', 'fluxnet']
 
 # check if the modules are available and load them, otherwise stop execution
 if not h.checklib(modules):
-    sys.exit("module dependencies are not fulfilled")
+    sys.exit('module dependencies are not fulfilled')
 
 else:
     import os
@@ -30,33 +29,24 @@ else:
     import neon
     import ameriflux
     import lter
+    import fluxnet
+    import asiaflux
+    from tqdm import tqdm
 
-    
-# -----------------------------------------------------------------
-# get the marker cluster for ICOS
-h.debugPrint(dbg,"processing ICOS")
-mcICOS = icos.sites_marker_list()
+dbg = True
 
-# -----------------------------------------------------------------
-# get the marker cluster for NEON
-h.debugPrint(dbg,"processing NEON")
-mcNEON = neon.sites_marker_list()
+networklist = {'icos', 'neon','ameriflux','lter','fluxnet','asiaflux'}
 
-
-#-----------------------------------------------------------------
-# get the marker cluster for AMRIFLUX
-h.debugPrint(dbg,"processing AmeriFlux")
-mcAmeriFlux = ameriflux.sites_marker_list()
-
-# -----------------------------------------------------------------
-# get the marker cluster for LTER
-h.debugPrint(dbg,"processing LTER/DEIMS")
-mcLTER = lter.sites_marker_list()
+mcList = [] # Marker Cluster List
+for n in tqdm(networklist):
+    # get the marker cluster
+    h.debugPrint(dbg, ''.join(['processing ',n]))
+    mcList.append(eval(n+'.sites_marker_list()'))
 
 #-----------------------------------------------------------------
 # create a map with all stations
 # define the initinal paramters of centre point and zoom
-h.debugPrint(dbg,"creating map with markers")
+h.debugPrint(dbg,'creating map with markers')
 
 
 Center = [43, 5]
@@ -89,24 +79,22 @@ folium.TileLayer('Mapbox Bright').add_to(myMap)
 # top right menu. You can easly switch on/off 
 # the different layers.
 
-icosFeature = folium.FeatureGroup(name='ICOS')
-neonFeature = folium.FeatureGroup(name='NEON')
-amerifluxFeature = folium.FeatureGroup(name='AmeriFlux')
-lterFeature = folium.FeatureGroup(name='LTER')
+#fgList = []
+for i, n in tqdm(enumerate(networklist)):
+    f = eval(''.join(['folium.FeatureGroup(name="',n,'")']))
+    eval('f.add_child(mcList[i]).add_to(myMap)')
 
-icosFeature.add_child(mcICOS).add_to(myMap)
-neonFeature.add_child(mcNEON).add_to(myMap)
-amerifluxFeature.add_child(mcAmeriFlux).add_to(myMap)
-lterFeature.add_child(mcLTER).add_to(myMap)
+#for i, f in enumerate(fgList):
+#    eval('f.add_child(mcList[i]).add_to(myMap)')
 
 folium.LayerControl().add_to(myMap)
 #---------------------------------------------------------------
 # now choose a name and safe the map to your local computer
-mapname = "stations.html"
+mapname = 'stations.html'
 myMap.save(mapname)
 
 url = os.path.abspath(mapname)
-h.debugPrint(dbg,("map saved to: " + url))
+h.debugPrint(dbg,('map saved to: ' + url))
 # open the saved html with default browser
 
 # the html file is now saved to the directory where your code is

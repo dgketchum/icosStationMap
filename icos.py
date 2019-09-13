@@ -25,8 +25,6 @@ else:
     from folium.plugins import MarkerCluster
     import requests
 
-
-
 def sites_marker_list(*checkUrl):
     """
         get all the sites return MarkerCluster
@@ -115,9 +113,8 @@ def sites_marker_list(*checkUrl):
             
 def srcLink(station, checkLnk):
     """
-        Assemble a string as http src link with the nenon station code
-        The result should be a valid link to the 'landing page of the"
-        site.
+        Assemble a string as http src link with the station code
+        The result should be a valid link to the 'landing page of the site.
         The link is checked for validity (http return 200)
     """
     

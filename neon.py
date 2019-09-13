@@ -10,7 +10,6 @@ from folium.plugins import MarkerCluster
 import helper_functions as h
 import textile
 
-
 def sites_marker_list(*checkUrl):
     """
         get all the neon sites and return MarkerCluster

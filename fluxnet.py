@@ -24,15 +24,16 @@ def sites_marker_list(*checkUrl):
         checkLnk = checkUrl
     
     # get the data through the neon api
-    url = "https://ameriflux-data.lbl.gov/AmeriFlux/SiteSearch.svc/SiteMapData/AmeriFlux"
+    url = 'https://ameriflux-data.lbl.gov/AmeriFlux/SiteSearch.svc/SiteMapData/Fluxnet'
+
     r = requests.get(url)
-    ameriflux = r.json()
+    fluxnet = r.json()
     
     # Now loop throuth the stations and add them to the MarkerCluster
     
     mc = MarkerCluster()
     
-    for station in ameriflux:
+    for station in fluxnet:
         # extract the location 
         aflocation = station['GRP_LOCATION']
         
@@ -49,7 +50,7 @@ def sites_marker_list(*checkUrl):
                 ):
                 #create the markers
                 msg = "<table border=0>"
-                msg += "<tr><td>Network: </td><td>AMERIFLUX</td></tr>"
+                msg += "<tr><td>Network: </td><td>Fluxnet</td></tr>"
                 msg += "<tr><td>Code: </td><td>" + srcLink(station, checkLnk) +"</td></tr>"
                 msg += "<tr><td>Name: </td><td>" + station['SITE_NAME'] +"</td></tr>"            
                 msg += "<tr><td>Latitude: </td><td>" + str(aflocation['LOCATION_LAT']) +"</td></tr>"
@@ -63,7 +64,7 @@ def sites_marker_list(*checkUrl):
                         location=[float(aflocation['LOCATION_LAT']),                        
                         float(aflocation['LOCATION_LONG'])],
                         popup=msg)
-                m.add_child(folium.Icon(color = 'orange', icon='bell'))
+                m.add_child(folium.Icon(color = 'blue', icon='asterisk'))
                 m.add_to(mc)                
     
     return mc
@@ -78,8 +79,7 @@ def srcLink(station, checkLnk):
     """
     
     # create a link to the stations landing page
-    
-    generalLink = 'https://ameriflux.lbl.gov/sites/site-list-and-pages/'
+    generalLink = 'https://fluxnet.fluxdata.org/sites/site-list-and-pages/'    
     link = station['URL_AMERIFLUX']
     
     # if checkLnk ist true, we check the webserver response
