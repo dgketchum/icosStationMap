@@ -7,15 +7,12 @@ By default the map is stored locally to stations.html.
 The following Networks are implemented sofar:
 
 - ICOS  Integrated Carbon Observation System [https://www.icos-ri.eu] [https://www.icos-.eu]
-	- Integrated Carbon Observation System (ICOS) is a pan-European research infrastructure which provides harmonised and high-precision scientific data on carbon cycle and greenhouse gas budget and perturbations.
+	- ICOS is the Integrated Carbon Observation System, a European Research Infrastructure. ICOS is the European measurement system for high quality and high precision greenhouse gas observations. The ICOS Carbon Portal provides free and open access to all ICOS data. 
 
 - NEON, The National Ecological Observatory Network [https://www.neonscience.org/]
-
 	- The National Science Foundation's National Ecological Observatory Network (NEON) is a continental-scale observation facility operated by Battelle and designed to collect long-term open access ecological data to better understand how U.S. ecosystems are changing. The comprehensive data, spatial extent and remote sensing technology provided by NEON will enable a large and diverse user community to tackle new questions at scales not accessible to previous generations of ecologists.
 	
-- LTER Network, Long Term Ecological Research
-	- [https://lternet.edu/] [https://deims.org/]
-	- DEIMS-SDR (Dynamic Ecological Information Management System - Site and dataset registry)
+- LTER Network, Long Term Ecological Research [https://lternet.edu/] [https://deims.org/]
 	- DEIMS-SDR (Dynamic Ecological Information Management System - Site and dataset registry) is an information management system that allows you to discover long-term ecosystem research sites around the globe, along with the data gathered at those sites and the people and networks associated with them. DEIMS-SDR describes a wide range of sites, providing a wealth of information, including each site’s location, ecosystems, facilities, parameters measured and research themes. It is also possible to access a growing number of datasets and data products associated with the sites. Read more about DEIMS
 
 - AMERIFLUX [https://ameriflux.lbl.gov/]
