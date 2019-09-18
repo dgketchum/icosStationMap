@@ -25,7 +25,6 @@ import helper_functions as h
 # set the list of necessary modules to run the code
 modules = ['os', 'webbrowser', 'folium', 'tqdm']
 networks = ['icos', 'neon', 'ameriflux', 'lter', 'fluxnet', 'asiaflux']
-
 dependencies = modules + networks
 # check if the modules are available and load them, otherwise stop execution
 if not h.checklib(dependencies):
@@ -34,7 +33,8 @@ if not h.checklib(dependencies):
 else:
     import os
     import webbrowser
-    import folium    
+    import folium 
+    from folium.plugins import MarkerCluster
     
     import icos
     import neon
@@ -50,6 +50,7 @@ for n in networks:
     # get the marker cluster
     h.debugPrint(dbg, ''.join(['processing ',n]))
     mcList.append(eval(n+'.sites_marker_list()'))
+
 
 #-----------------------------------------------------------------
 # create a map with all stations
@@ -86,13 +87,13 @@ folium.TileLayer('Mapbox Control Room').add_to(myMap)
 # the different layers.
 h.debugPrint(dbg,'adding feature groups')
 
-for i, n in enumerate(networks):
-    f = eval(''.join(['folium.FeatureGroup(name="',n,'")']))
+for i, n in enumerate(networks):    
+    f = eval('folium.FeatureGroup(name=n)')
     eval('f.add_child(mcList[i]).add_to(myMap)')
 
 folium.LayerControl().add_to(myMap)
 #---------------------------------------------------------------
-# now choose a name and safe the map to your local computer
+# now safe the map to your local computer
 mapname = 'stations.html'
 myMap.save(mapname)
 

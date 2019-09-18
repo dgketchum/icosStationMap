@@ -58,7 +58,7 @@ def sites_marker_list(*checkUrl):
                 m = folium.Marker(
                         location = [float(station['locationDecimalLatitude']), float(station['locationDecimalLongitude'])],
                         popup=msg)
-                m.add_child(folium.Icon(color = 'yellow', icon='certificate'))
+                m.add_child(folium.Icon(color = 'orange', icon='certificate'))
                 m.add_to(mc)                
     
     return mc

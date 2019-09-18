@@ -72,7 +72,7 @@ def sites_marker_list(*checkUrl):
     
     # create a MarkerCluster for all the ICOS sites
     
-    mc = MarkerCluster()
+    mc = MarkerCluster()   
        
     # loop through the ICOS datatable and create the markers
     for station in datatable:
@@ -80,15 +80,15 @@ def sites_marker_list(*checkUrl):
         # check if lat, lon are numbers, otherwise skip the station
         if (h.is_number(station[0])) and (h.is_number(station[1])):
             #create the markers
-            msg = "<table border=0>"
-            msg += "<tr><td>Network: </td><td>ICOS</td></tr>"        
-            msg += "<tr><td>Country: </td><td>" + station[3] +"</td></tr>"                    
-            msg += "<tr><td>Code: </td><td>" + srcLink(station, checkLnk) +"</td></tr>"
-            msg += "<tr><td>Name: </td><td>" + station[5] +"</td></tr>"
-            msg += "<tr><td>Theme: </td><td>" + station[2] +"</td></tr>"
-            msg += "<tr><td>Latitude: </td><td>" + station[0] +"</td></tr>"
-            msg += "<tr><td>Longitude: </td><td>" + station[1] +"</td></tr>"
-            msg += "</table>"            
+            msg = '<table border=0>'
+            msg += '<tr><td>Network: </td><td>ICOS</td></tr>'
+            msg += '<tr><td>Country: </td><td>' + station[3] + '</td></tr>'
+            msg += '<tr><td>Code: </td><td>' + srcLink(station, checkLnk) + '</td></tr>'
+            msg += '<tr><td>Name: </td><td>' + station[5] + '</td></tr>'
+            msg += '<tr><td>Theme: </td><td>' + station[2] + '</td></tr>'
+            msg += '<tr><td>Latitude: </td><td>' + station[0] + '</td></tr>'
+            msg += '<tr><td>Longitude: </td><td>' + station[1] + '</td></tr>'
+            msg += '</table>'         
             msg = textile.textile(msg)
             
             #create a marker to display the station on the map
@@ -105,8 +105,7 @@ def sites_marker_list(*checkUrl):
                 marker.add_child(folium.Icon(color = 'blue', icon='tint'))
                 
             # add the marker to the "marker cluster"
-            mc.add_child(marker)     
-
+            mc.add_child(marker)
     return mc
 #---EOF DEF----------------------------------------------------------
             
