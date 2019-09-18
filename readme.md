@@ -22,5 +22,5 @@ The following Networks are implemented sofar:
 - FLUXNET [https://fluxnet.fluxdata.org/]
 	- FLUXNET is organized through the Regional Networks that contribute data to FLUXNET datasets available at the FLUXNET-Fluxdata webiste (https://fluxnet.fluxdata.org/), hosted at the Lawrence Berkeley National Laboratory (USA).  Here the data that have been shared by the Regional Networks and processed and harmonized to share with the FLUXNET communities.  Fluxdata website offers a number of tools in addition to the data access such communication and ideas sharing platforms, documentation, and support to the FLUXNET data users.
 	
-- ASIAFLUX [[http://asiaflux.net/]]
+- ASIAFLUX [http://asiaflux.net/]
 	- AsiaFlux is a regional research network bringing together scientists from universities and institutions in Asia to study the exchanges of carbon dioxide, water vapor, and energy between terrestrial ecosystems and the atmosphere across daily to inter-annual time scales. For more details, please refer to the following article :[About AsiaFlux] (http://asiaflux.net/?action=common_download_main&upload_id=353)
