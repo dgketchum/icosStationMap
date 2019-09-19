@@ -63,7 +63,7 @@ def sites_marker_list(*checkUrl):
                         location=[float(aflocation['LOCATION_LAT']),                        
                         float(aflocation['LOCATION_LONG'])],
                         popup=msg)
-                m.add_child(folium.Icon(color = 'orange', icon='bell'))
+                m.add_child(h.getIcon('ameriflux'))
                 m.add_to(mc)                
     
     return mc

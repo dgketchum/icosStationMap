@@ -10,6 +10,7 @@ __version__= "0.1.0"
 # create helper functions
 #-----------------------------------------------------------------
 
+
 def is_number(num):
     """ check if we deal with a number """
     try:
@@ -39,6 +40,43 @@ def checklib(module):
             ret = 0
     return ret
 
+#---------------------------------------------------------------------
+def getIcon(network, theme=None):
+    import folium
+    from folium.features import CustomIcon
+    icon = None
+    x = 32
+    y = 32
+    base = 'https://claudiodonofrio.github.io/res/icons/'    
+    if network == 'icos':        
+        if theme=='AS':
+            icoLnk = base+'atc_ico.png'
+            icon = CustomIcon(icoLnk, icon_size=(x,y))
+        if theme=='ES':
+            icoLnk = base+'etc_ico.png'
+            icon = CustomIcon(icoLnk, icon_size=(x,y))
+        if theme=='OS':
+            icoLnk = base+'otc_ico.png'
+            icon = CustomIcon(icoLnk, icon_size=(x,y))
+    if network == 'neon':
+        icoLnk = base+'neon_ico.png'
+        icon = CustomIcon(icoLnk, icon_size=(x,y))
+    if network == 'ameriflux':
+        icoLnk = base+'ameriflux_ico.png'
+        icon = CustomIcon(icoLnk, icon_size=(x,y))
+    if network == 'asiaflux':
+        icoLnk = base+'asiaflux_ico.png'
+        icon = CustomIcon(icoLnk, icon_size=(x,y))
+    if network == 'lter':
+        icoLnk = base+'deims_ico.png'
+        icon = CustomIcon(icoLnk, icon_size=(x,y))
+    if network == 'fluxnet':
+        icoLnk = base+'fluxnet_ico.png'
+        icon = CustomIcon(icoLnk, icon_size=(x,y))
+    
+    if icon is None:        
+        icon=folium.Icon(color='blue',icon='info-sign')
+    return icon
 #---------------------------------------------------------------------
 def icos_stations(*args):
     """

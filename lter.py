@@ -64,7 +64,7 @@ def sites_marker_list(*checkUrl):
                 
                 #create a marker and add to cluster
                 m = folium.Marker(location=[float(lat), float(lon)],popup=msg)
-                m.add_child(folium.Icon(color = 'lightblue', icon='info-sign'))
+                m.add_child(h.getIcon('lter'))
                 m.add_to(mc)
     
     return mc

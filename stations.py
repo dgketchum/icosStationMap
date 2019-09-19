@@ -35,7 +35,7 @@ else:
     import webbrowser
     import folium 
     from folium.plugins import MarkerCluster
-    
+    import tqdm
     import icos
     import neon
     import asiaflux

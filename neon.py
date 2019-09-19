@@ -27,17 +27,13 @@ def sites_marker_list(*checkUrl):
     r = requests.get(url)
     neonsites = r.json()
     
-    
     # Now loop throuth the NEON stations and add them to the MarkerCluster
-    
     mc = MarkerCluster()
     for station in neonsites['data']:
         if (   
             'locationDecimalLatitude' in station and 
             'locationDecimalLongitude' in station 
-            ):  
-            
-            #print(station['locationName'])
+            ):
             # check if lat, lon exist and are numbers, otherwise skip the station
             if (
                     h.is_number(station['locationDecimalLatitude']) and
@@ -51,16 +47,14 @@ def sites_marker_list(*checkUrl):
                 msg += "<tr><td>Latitude: </td><td>" + str(station['locationDecimalLatitude']) +"</td></tr>"
                 msg += "<tr><td>Longitude: </td><td>" + str(station['locationDecimalLongitude']) +"</td></tr>"
                 msg += "</table>"                    
-                msg = textile.textile(msg)
-                
+                msg = textile.textile(msg)                
                 
                 #create a marker and add to cluster
                 m = folium.Marker(
                         location = [float(station['locationDecimalLatitude']), float(station['locationDecimalLongitude'])],
                         popup=msg)
-                m.add_child(folium.Icon(color = 'orange', icon='certificate'))
-                m.add_to(mc)                
-    
+                m.add_child(h.getIcon('neon'))
+                m.add_to(mc)                    
     return mc
 
 

@@ -9,6 +9,7 @@ import folium
 from folium.plugins import MarkerCluster
 import textile
 from bs4 import BeautifulSoup
+import helper_functions as h
 
 def sites_marker_list(*checkUrl):
     """
@@ -68,7 +69,7 @@ def sites_marker_list(*checkUrl):
                 location=[lat, lon],
                 popup=msg)
         #m.add_child(folium.Icon(icon='atom'))
-        m.add_child(folium.Icon(color = 'gray', icon='tint'))
+        m.add_child(h.getIcon('asiaflux'))
         m.add_to(mc)                
     
     return mc

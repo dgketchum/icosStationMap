@@ -75,8 +75,7 @@ def sites_marker_list(*checkUrl):
     mc = MarkerCluster()   
        
     # loop through the ICOS datatable and create the markers
-    for station in datatable:
-    
+    for station in datatable:    
         # check if lat, lon are numbers, otherwise skip the station
         if (h.is_number(station[0])) and (h.is_number(station[1])):
             #create the markers
@@ -94,16 +93,17 @@ def sites_marker_list(*checkUrl):
             #create a marker to display the station on the map
             marker = folium.Marker(                    
                     location=[float(station[0]), float(station[1])],
-                    popup=msg).add_to(mc)
-            
+                    popup=msg)            
             # check which icon we should use
             if(station[2] == "AS"):
-                marker.add_child(folium.Icon(color = 'lightblue', icon='cloud'))
+                marker.add_child(h.getIcon('icos', 'AS'))
+                #marker.add_child(folium.Icon(color = 'lightblue', icon='cloud'))
             elif(station[2] == "ES"):
-                marker.add_child(folium.Icon(color = 'green', icon='leaf'))
+                marker.add_child(h.getIcon('icos', 'ES'))
+                #marker.add_child(folium.Icon(color = 'green', icon='leaf'))
             elif(station[2] == "OS"):
-                marker.add_child(folium.Icon(color = 'blue', icon='tint'))
-                
+                marker.add_child(h.getIcon('icos', 'OS'))
+                #marker.add_child(folium.Icon(color = 'blue', icon='tint'))                
             # add the marker to the "marker cluster"
             mc.add_child(marker)
     return mc

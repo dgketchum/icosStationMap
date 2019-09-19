@@ -64,7 +64,7 @@ def sites_marker_list(*checkUrl):
                         location=[float(aflocation['LOCATION_LAT']),                        
                         float(aflocation['LOCATION_LONG'])],
                         popup=msg)
-                m.add_child(folium.Icon(color = 'blue', icon='asterisk'))
+                m.add_child(h.getIcon('fluxnet'))
                 m.add_to(mc)                
     
     return mc
