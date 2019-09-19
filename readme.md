@@ -2,7 +2,7 @@
 
 #### You need only to run "stations.py". All information about the stations are downloaded directly from their respective metadata store and combined into one map. Each Network has its own Layer (top right pull down menu in stations.html). By default the map is stored locally to stations.html.
 
-This is how it looks like: [stations.html}(https://claudiodonofrio.github.io/stations.html)
+This is how it looks like: [stations.html](https://claudiodonofrio.github.io/stations.html)
 
 
 
