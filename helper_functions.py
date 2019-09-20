@@ -41,42 +41,47 @@ def checklib(module):
     return ret
 
 #---------------------------------------------------------------------
-def getIcon(network, theme=None):
+def getIcon(network=None, theme=None, size=32, returnLnk=False):
     import folium
     from folium.features import CustomIcon
     icon = None
-    x = 32
-    y = 32
     base = 'https://claudiodonofrio.github.io/res/icons/'    
-    if network == 'icos':        
+    if network == 'icos':
+        icoLnk = base+'icos_ico.png'
+        icon = CustomIcon(icoLnk, icon_size=(size,size))        
         if theme=='AS':
             icoLnk = base+'atc_ico.png'
-            icon = CustomIcon(icoLnk, icon_size=(x,y))
+            icon = CustomIcon(icoLnk, icon_size=(size,size))
         if theme=='ES':
             icoLnk = base+'etc_ico.png'
-            icon = CustomIcon(icoLnk, icon_size=(x,y))
+            icon = CustomIcon(icoLnk, icon_size=(size,size))
         if theme=='OS':
             icoLnk = base+'otc_ico.png'
-            icon = CustomIcon(icoLnk, icon_size=(x,y))
+            icon = CustomIcon(icoLnk, icon_size=(size,size))
     if network == 'neon':
         icoLnk = base+'neon_ico.png'
-        icon = CustomIcon(icoLnk, icon_size=(x,y))
+        icon = CustomIcon(icoLnk, icon_size=(size,size))
     if network == 'ameriflux':
         icoLnk = base+'ameriflux_ico.png'
-        icon = CustomIcon(icoLnk, icon_size=(x,y))
+        icon = CustomIcon(icoLnk, icon_size=(size,size))
     if network == 'asiaflux':
         icoLnk = base+'asiaflux_ico.png'
-        icon = CustomIcon(icoLnk, icon_size=(x,y))
+        icon = CustomIcon(icoLnk, icon_size=(size,size))
     if network == 'lter':
         icoLnk = base+'deims_ico.png'
-        icon = CustomIcon(icoLnk, icon_size=(x,y))
+        icon = CustomIcon(icoLnk, icon_size=(size,size))
     if network == 'fluxnet':
         icoLnk = base+'fluxnet_ico.png'
-        icon = CustomIcon(icoLnk, icon_size=(x,y))
+        icon = CustomIcon(icoLnk, icon_size=(size,size))
     
     if icon is None:        
         icon=folium.Icon(color='blue',icon='info-sign')
+    if returnLnk:
+        lnk = "<img src='" + icoLnk + "' height='16' width='16'>"
+        return lnk
     return icon
+
+
 #---------------------------------------------------------------------
 def icos_stations(*args):
     """

@@ -25,6 +25,7 @@ import helper_functions as h
 # set the list of necessary modules to run the code
 modules = ['os', 'webbrowser', 'folium', 'tqdm']
 networks = ['icos', 'neon', 'ameriflux', 'lter', 'fluxnet', 'asiaflux']
+#networks = ['icos']
 dependencies = modules + networks
 # check if the modules are available and load them, otherwise stop execution
 if not h.checklib(dependencies):
@@ -87,11 +88,13 @@ folium.TileLayer('Mapbox Control Room').add_to(myMap)
 # the different layers.
 h.debugPrint(dbg,'adding feature groups')
 
-for i, n in enumerate(networks):    
+for i, n in enumerate(networks): 
+    n = h.getIcon(n, returnLnk=True) + '&nbsp;&nbsp;' + n
     f = eval('folium.FeatureGroup(name=n)')
     eval('f.add_child(mcList[i]).add_to(myMap)')
 
 folium.LayerControl().add_to(myMap)
+
 #---------------------------------------------------------------
 # now safe the map to your local computer
 mapname = 'stations.html'
