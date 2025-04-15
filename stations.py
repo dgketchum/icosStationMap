@@ -11,13 +11,14 @@ import fluxnet
 import ameriflux
 import lter
 
-networks = ['asiaflux', 'fluxnet', 'lter', 'ameriflux', 'neon', 'icos']
+networks = ['asiaflux', 'fluxnet', 'ameriflux', 'neon', 'lter', 'icos']
 
 
 def get_stations(shp):
     master_list = []
     for n in networks:
         sublist = eval(n + '.sites_marker_list()')
+        print(n)
         master_list.extend(sublist)
 
     data_ = np.array(master_list)
