@@ -10,8 +10,9 @@ import asiaflux
 import fluxnet
 import ameriflux
 import lter
+import ozflux
 
-networks = ['asiaflux', 'fluxnet', 'ameriflux', 'neon', 'lter', 'icos']
+networks = ['ozflux', 'asiaflux', 'fluxnet', 'ameriflux', 'neon', 'lter', 'icos']
 
 
 def get_stations(shp):
@@ -38,7 +39,7 @@ def get_stations(shp):
 if __name__ == '__main__':
     home = '/media/research'
     d = os.path.join(home, 'IrrigationGIS', 'climate')
-    shp_ = os.path.join(d, 'flux_stations.shp')
+    shp_ = os.path.join(d, 'flux_stations_18APR2025.shp')
     get_stations(shp_)
 
 # ========================= EOF ============================================================================
